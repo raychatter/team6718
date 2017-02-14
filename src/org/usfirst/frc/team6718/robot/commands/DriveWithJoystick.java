@@ -12,6 +12,7 @@ public class DriveWithJoystick extends CommandBase {
 
 	public DriveWithJoystick() {
 		// Use requires() here to declare subsystem dependencies
+		super("DriveWithJoystick");
 		m_driveSystem = DriveSystem.getInstance();
 		requires(m_driveSystem);
 	}

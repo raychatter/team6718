@@ -13,6 +13,7 @@ public class Turn extends Command {
 
   public Turn(double timeout) {
     // Use requires() here to declare subsystem dependencies
+    super("Turn");
     m_timeout = timeout;
     requires(DriveSystem.getInstance());
   }

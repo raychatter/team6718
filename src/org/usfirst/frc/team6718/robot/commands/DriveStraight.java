@@ -13,6 +13,7 @@ public class DriveStraight extends Command {
 
   public DriveStraight(double timeout) {
     // Use requires() here to declare subsystem dependencies
+    super("DriveStraight");
     m_timeout = timeout;
     requires(DriveSystem.getInstance());
   }
