@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6718.robot.commands.DriveWithJoystick;
+import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
 
 /**
  * This class is the glue that binds the controls on the physical operator
