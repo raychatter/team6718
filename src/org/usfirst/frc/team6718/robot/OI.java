@@ -17,7 +17,7 @@ public class OI {
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	public static final int JOYSTICK_PORT = 0;
-	public static final int TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER = 11;
+	public static final int TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER = 1;
 	private static OI instance = null;
 	private Joystick stick;
 	private JoystickButton triggerDriveSquareButton;
