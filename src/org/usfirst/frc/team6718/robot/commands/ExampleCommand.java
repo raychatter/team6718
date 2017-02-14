@@ -1,17 +1,19 @@
 package org.usfirst.frc.team6718.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
+import org.usfirst.frc.team6718.robot.CommandBase;
 import org.usfirst.frc.team6718.robot.Robot;
 import org.usfirst.frc.team6718.robot.subsystems.ExampleSubsystem;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
+public class ExampleCommand extends CommandBase {
+	ExampleSubsystem m_drive;
+
 	public ExampleCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(ExampleSubsystem.getInstance());
+		m_drive = ExampleSubsystem.getInstance();
+		requires(m_drive);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,6 +24,7 @@ public class ExampleCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
+		m_drive.driveWithJoystick();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

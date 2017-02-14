@@ -9,50 +9,28 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class ExampleSubsystem extends Subsystem {
-	Joystick stick;
-	RobotDrive buttah;
+	RobotDrive drive;
 	Spark frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor;
-	
-	public static ExampleSubsystem instance;
-	
-	public static ExampleSubsystem getInstance() {
-		if (instance == null) {
-			instance = new ExampleSubsystem();
-		}
-		return instance;
-	}
-	
+
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new DriveWithJoystick());
 	}
-	
-	private ExampleSubsystem() {
-		super();
-		stick = new Joystick(0);
+
+	public ExampleSubsystem() {
+		// super();
 		frontLeftMotor = new Spark(0);
 		rearLeftMotor =  new Spark(1);
 		frontRightMotor = new Spark(2);
-		rearRightMotor = new Spark(3);		
-		buttah = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
-		setForwardMotorConfiguration();
+		rearRightMotor = new Spark(3);
+		drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+		drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+		drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 	}
-	
-	public void drive() {
-		buttah.arcadeDrive(stick);
-	}
-	
-	public void setForwardMotorConfiguration() {
-		buttah.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-		buttah.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
-		buttah.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-		buttah.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-	}
-	
-	public void setReverseMotorConfiguration() {
-		buttah.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
-		buttah.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
-		buttah.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
-		buttah.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
+
+	public void driveWithJoystick() {
+		drive.arcadeDrive(oi.getJoystick());
 	}
 }
