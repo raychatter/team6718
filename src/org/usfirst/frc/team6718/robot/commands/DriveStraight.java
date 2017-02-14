@@ -1,14 +1,13 @@
 package org.usfirst.frc.team6718.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
+import org.usfirst.frc.team6718.robot.CommandBase;
 import org.usfirst.frc.team6718.robot.Robot;
 import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 
 /**
  *
  */
-public class DriveStraight extends Command {
+public class DriveStraight extends CommandBase {
   private double m_timeout;
 
   public DriveStraight(double timeout) {
