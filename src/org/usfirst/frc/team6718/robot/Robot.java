@@ -29,10 +29,11 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		autonomousCommand = new DriveInASquare();
 		CommandBase.init();	// Initialize commands and the OI
-		// chooser.addDefault("Default Auto", new DriveWithJoystick());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		// SmartDashboard.putData("Auto mode", chooser);
+		chooser.addDefault("Drive with Joystick (default)", new DriveWithJoystick());
+		chooser.addObject("Drive in Square", autonomousCommand);
+		SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -63,7 +64,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		// autonomousCommand = chooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
