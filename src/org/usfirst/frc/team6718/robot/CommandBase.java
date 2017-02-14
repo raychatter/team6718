@@ -1,10 +1,10 @@
 package org.usfirst.frc.team6718.robot;
 
-import org.usfirst.frc.team6718.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 
 public abstract class CommandBase extends Command {
   public static OI oi;
-  public static ExampleSubsystem driveSystem = new ExampleSubsystem();
+  public static DriveSystem driveSystem = new DriveSystem();
 
   public static void init() {
     oi = new OI();

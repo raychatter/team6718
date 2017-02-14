@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class ExampleSubsystem extends Subsystem {
+public class DriveSystem extends Subsystem {
 	RobotDrive drive;
 	Spark frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor;
 
@@ -17,7 +17,7 @@ public class ExampleSubsystem extends Subsystem {
 		setDefaultCommand(new DriveWithJoystick());
 	}
 
-	public ExampleSubsystem() {
+	public DriveSystem() {
 		// super();
 		frontLeftMotor = new Spark(0);
 		rearLeftMotor =  new Spark(1);

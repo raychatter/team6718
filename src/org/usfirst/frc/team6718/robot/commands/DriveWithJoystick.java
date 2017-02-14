@@ -2,18 +2,18 @@ package org.usfirst.frc.team6718.robot.commands;
 
 import org.usfirst.frc.team6718.robot.CommandBase;
 import org.usfirst.frc.team6718.robot.Robot;
-import org.usfirst.frc.team6718.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 
 /**
  *
  */
-public class ExampleCommand extends CommandBase {
-	ExampleSubsystem m_drive;
+public class DriveWithJoystick extends CommandBase {
+	DriveSystem m_driveSystem;
 
-	public ExampleCommand() {
+	public DriveWithJoystick() {
 		// Use requires() here to declare subsystem dependencies
-		m_drive = ExampleSubsystem.getInstance();
-		requires(m_drive);
+		m_driveSystem = DriveSystem.getInstance();
+		requires(m_driveSystem);
 	}
 
 	// Called just before this Command runs the first time
@@ -24,7 +24,7 @@ public class ExampleCommand extends CommandBase {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		m_drive.driveWithJoystick();
+		m_driveSystem.driveWithJoystick();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
