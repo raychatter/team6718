@@ -1,20 +1,21 @@
 package org.usfirst.frc.team6718.robot.commands;
 
-import org.usfirst.frc.team6718.robot.CommandBase;
+import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc.team6718.robot.Robot;
 import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 
 /**
  *
  */
-public class DriveStraight extends CommandBase {
+public class DriveStraight extends Command {
   private double m_timeout;
 
   public DriveStraight(double timeout) {
     // Use requires() here to declare subsystem dependencies
     super("DriveStraight");
     m_timeout = timeout;
-    requires(DriveSystem.getInstance());
+    requires(Robot.driveSystem);
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +27,7 @@ public class DriveStraight extends CommandBase {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    DriveSystem.getInstance().straight();
+    Robot.driveSystem.straight();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,11 +39,13 @@ public class DriveStraight extends CommandBase {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.driveSystem.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.driveSystem.stop();
   }
 }

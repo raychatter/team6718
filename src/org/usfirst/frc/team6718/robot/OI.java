@@ -16,10 +16,8 @@ public class OI {
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	public static final int JOYSTICK_PORT = 0;
+	private Joystick stick  = new Joystick(JOYSTICK_PORT);
 	public static final int TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER = 2;
-	private static OI instance = null;
-	private Joystick stick;
-	private JoystickButton triggerDriveSquareButton;
 	// Button button = new JoystickButton(stick, 11);
 
 	// There are a few additional built in buttons you can use. Additionally,
@@ -33,17 +31,9 @@ public class OI {
 	// Start the command when the button is pressed and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	public OI() {
-		stick = new Joystick(JOYSTICK_PORT);
-		triggerDriveSquareButton = new JoystickButton(stick, TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER);
+		JoystickButton triggerDriveSquareButton = new JoystickButton(stick, TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER);
 		triggerDriveSquareButton.whenPressed(new DriveInASquare());
 
-	}
-
-	public static OI getInstance() {
-		if (instance == null) {
-			instance = new OI();
-		}
-		return instance;
 	}
 
 	public Joystick getJoystick() {

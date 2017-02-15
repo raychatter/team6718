@@ -1,6 +1,5 @@
 package org.usfirst.frc.team6718.robot.subsystems;
 
-import org.usfirst.frc.team6718.robot.OI;
 import org.usfirst.frc.team6718.robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -12,34 +11,35 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class DriveSystem extends Subsystem {
-	private static DriveSystem instance;
 	public static final int FRONT_LEFT_MOTOR_PORT = 0;
 	public static final int REAR_LEFT_MOTOR_PORT = 1;
 	public static final int FRONT_RIGHT_MOTOR_PORT = 2;
 	public static final int REAR_RIGHT_MOTOR_PORT = 3;
-	private RobotDrive drive;
-	private Spark frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor;
-
-	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		setDefaultCommand(new DriveWithJoystick());
-	}
+	private Spark frontLeftMotor = new Spark(FRONT_LEFT_MOTOR_PORT);
+	private Spark rearLeftMotor = new Spark(REAR_LEFT_MOTOR_PORT);
+	private Spark frontRightMotor = new Spark(FRONT_RIGHT_MOTOR_PORT);
+	private Spark rearRightMotor = new Spark(REAR_RIGHT_MOTOR_PORT);
+	private RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
 
 	public DriveSystem() {
-		// super();
-		frontLeftMotor = new Spark(4);
-		rearLeftMotor =  new Spark(5);
-		frontRightMotor = new Spark(6);
-		rearRightMotor = new Spark(7);
-		drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+		super();
 		drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 		drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 	}
 
-	public void driveWithJoystick() {
-		drive.arcadeDrive(OI.getInstance().getJoystick());
+	/**
+	 * When no other command is running let the operator drive around using the
+	 * PS3 joystick.
+	 */
+	@Override
+	public void initDefaultCommand() {
+		setDefaultCommand(new DriveWithJoystick());
+	}
+
+	public void driveWithJoystick(Joystick stick) {
+		drive.arcadeDrive(stick);
 	}
 
 	public void straight() {
@@ -50,10 +50,7 @@ public class DriveSystem extends Subsystem {
 		drive.arcadeDrive(0.0, 1.0);
 	}
 
-	public static DriveSystem getInstance() {
-		if (instance == null) {
-			instance = new DriveSystem();
-		}
-		return instance;
+	public void stop() {
+		drive.arcadeDrive(0.0, 0.0);
 	}
 }

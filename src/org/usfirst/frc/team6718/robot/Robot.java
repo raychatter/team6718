@@ -8,9 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team6718.robot.CommandBase;
 import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
-import org.usfirst.frc.team6718.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 
 /**
@@ -23,7 +21,9 @@ import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+
+	public static DriveSystem driveSystem;
+	public static OI oi;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -31,11 +31,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		driveSystem = new DriveSystem();
+		oi = new OI();
 		autonomousCommand = new DriveInASquare();
-		CommandBase.init();	// Initialize commands and the OI
-//		chooser.addDefault("Drive with Joystick (default)", new DriveWithJoystick());
-//		chooser.addObject("Drive in Square", autonomousCommand);
-//		SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
