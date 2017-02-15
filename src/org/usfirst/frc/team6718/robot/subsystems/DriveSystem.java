@@ -1,5 +1,8 @@
 package org.usfirst.frc.team6718.robot.subsystems;
 
+import org.usfirst.frc.team6718.robot.OI;
+import org.usfirst.frc.team6718.robot.commands.DriveWithJoystick;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
@@ -9,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class DriveSystem extends Subsystem {
+	private static DriveSystem instance;
 	public static final int FRONT_LEFT_MOTOR_PORT = 0;
 	public static final int REAR_LEFT_MOTOR_PORT = 1;
 	public static final int FRONT_RIGHT_MOTOR_PORT = 2;
@@ -23,10 +27,10 @@ public class DriveSystem extends Subsystem {
 
 	public DriveSystem() {
 		// super();
-		frontLeftMotor = new Spark(FRONT_LEFT_MOTOR_PORT);
-		rearLeftMotor =  new Spark(REAR_LEFT_MOTOR_PORT);
-		frontRightMotor = new Spark(FRONT_RIGHT_MOTOR_PORT);
-		rearRightMotor = new Spark(REAR_RIGHT_MOTOR_PORT);
+		frontLeftMotor = new Spark(4);
+		rearLeftMotor =  new Spark(5);
+		frontRightMotor = new Spark(6);
+		rearRightMotor = new Spark(7);
 		drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
 		drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
@@ -35,7 +39,7 @@ public class DriveSystem extends Subsystem {
 	}
 
 	public void driveWithJoystick() {
-		drive.arcadeDrive(oi.getJoystick());
+		drive.arcadeDrive(OI.getInstance().getJoystick());
 	}
 
 	public void straight() {
@@ -43,6 +47,13 @@ public class DriveSystem extends Subsystem {
 	}
 
 	public void turnLeft() {
-		drive.arcadeDrive(0.0, 1.0)
+		drive.arcadeDrive(0.0, 1.0);
+	}
+
+	public static DriveSystem getInstance() {
+		if (instance == null) {
+			instance = new DriveSystem();
+		}
+		return instance;
 	}
 }

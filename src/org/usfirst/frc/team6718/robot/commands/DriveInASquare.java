@@ -9,12 +9,12 @@ public class DriveInASquare extends CommandGroup {
 
   public DriveInASquare() {
     super("DriveInASquare");
-    add(new DriveStraight(1));
-    add(new Turn(1));
-    add(new DriveStraight(1));
-    add(new Turn(1));
-    add(new DriveStraight(1));
-    add(new Turn(1));
-    add(new DriveStraight(1));
+    addSequential(new DriveStraight(1));
+    addSequential(new Turn(1));
+    addSequential(new DriveStraight(1));
+    addSequential(new Turn(1));
+    addSequential(new DriveStraight(1));
+    addSequential(new Turn(1));
+    addSequential(new DriveStraight(1));
   }
 }

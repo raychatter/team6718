@@ -8,8 +8,8 @@ public abstract class CommandBase extends Command {
   public static DriveSystem driveSystem = new DriveSystem();
 
   public static void init() {
-    // oi = new OI(); <-- they still have this in example
-    oi = OI.getInstance();
+     oi = new OI(); //<-- they still have this in example
+//    oi = OI.getInstance();
   }
 
   public CommandBase(String name) {
