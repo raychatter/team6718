@@ -9,18 +9,17 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team6718.robot.RobotMap;
+
 /**
  * The claw subsystem is a simple system with a motor for opening and closing.
  * If using stronger motors, you should probably use a sensor so that the motors
  * don't stall.
  */
 public class RightClaw extends Subsystem {
-  public static final int RIGHT_CLAW_MOTOR_PORT = 8;
-  public static final int RIGHT_CLOSED_LIMIT_SWITCH_PORT = 7;
-  public static final int RIGHT_OPEN_LIMIT_SWITCH_PORT = 6;
-  private Victor motor = new Victor(RIGHT_CLAW_MOTOR_PORT);
-  private DigitalInput rightClawClosed = new DigitalInput(RIGHT_CLOSED_LIMIT_SWITCH_PORT);
-  private DigitalInput rightClawOpen = new DigitalInput(RIGHT_OPEN_LIMIT_SWITCH_PORT);
+  private Victor motor = new Victor(RobotMap.RIGHT_CLAW_MOTOR);
+  private DigitalInput rightClawClosed = new DigitalInput(RobotMap.RIGHT_CLOSED_SWITCH);
+  private DigitalInput rightClawOpen = new DigitalInput(RobotMap.RIGHT_OPEN_SWITCH);
 
   public RightClaw() {
     super();

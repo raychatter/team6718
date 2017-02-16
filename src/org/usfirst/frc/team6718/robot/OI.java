@@ -3,6 +3,7 @@ package org.usfirst.frc.team6718.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team6718.robot.RobotMap;
 import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
 import org.usfirst.frc.team6718.robot.commands.CloseClawsAndMoveConveyor;
 import org.usfirst.frc.team6718.robot.commands.ConveyorDown;
@@ -22,12 +23,6 @@ public class OI {
 	// number it is.
 	public static final int JOYSTICK_PORT = 0;
 	private Joystick stick  = new Joystick(JOYSTICK_PORT);
-	public static final int TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER = 7;
-	public static final int TRIGGER_CLAW_CLOSE_AND_CONVEYOR_BUTTON_NUMBER = 8;
-	public static final int TRIGGER_CONVEYOR_DOWN_BUTTON_NUMBER = 9;
-	public static final int TRIGGER_CONVEYOR_UP_BUTTON_NUMBER = 10;
-	public static final int TRIGGER_CLAW_OPEN_BUTTON_NUMBER = 11;
-	public static final int TRIGGER_CLAW_CLOSE_BUTTON_NUMBER = 12;
 
 	// Button button = new JoystickButton(stick, 11);
 
@@ -42,23 +37,23 @@ public class OI {
 	// Start the command when the button is pressed and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	public OI() {
-		JoystickButton triggerDriveSquareButton = new JoystickButton(stick, TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER);
-		triggerDriveSquareButton.whenPressed(new DriveInASquare());
+		JoystickButton driveSquareButton = new JoystickButton(stick, RobotMap.DRIVE_SQUARE_BUTTON);
+		driveSquareButton.whenPressed(new DriveInASquare());
 
-		JoystickButton triggerClawCloseAndConveyorButtonNumber = new JoystickButton(stick, TRIGGER_CLAW_CLOSE_AND_CONVEYOR_BUTTON_NUMBER);
-		triggerClawCloseAndConveyorButtonNumber.whenPressed(new CloseClawsAndMoveConveyor());
+		JoystickButton clawCloseAndConveyorButton = new JoystickButton(stick, RobotMap.CLAW_CLOSE_AND_CONVEYOR_BUTTON);
+		clawCloseAndConveyorButton.whenPressed(new CloseClawsAndMoveConveyor());
 
-		JoystickButton triggerConveyorDownButton = new JoystickButton(stick, TRIGGER_CONVEYOR_DOWN_BUTTON_NUMBER);
-		triggerConveyorDownButton.whenPressed(new ConveyorDown());
+		JoystickButton conveyorDownButton = new JoystickButton(stick, RobotMap.CONVEYOR_DOWN_BUTTON);
+		conveyorDownButton.whenPressed(new ConveyorDown());
 
-		JoystickButton triggerConveyorUpButton = new JoystickButton(stick, TRIGGER_CONVEYOR_UP_BUTTON_NUMBER);
-		triggerConveyorUpButton.whenPressed(new ConveyorUp());
+		JoystickButton conveyorUpButton = new JoystickButton(stick, RobotMap.CONVEYOR_UP_BUTTON);
+		conveyorUpButton.whenPressed(new ConveyorUp());
 
-		JoystickButton triggerLeftClawOpenButton = new JoystickButton(stick, TRIGGER_CLAW_OPEN_BUTTON_NUMBER);
-		triggerLeftClawOpenButton.whenPressed(new OpenClaws());
+		JoystickButton leftClawOpenButton = new JoystickButton(stick, RobotMap.CLAW_OPEN_BUTTON);
+		leftClawOpenButton.whenPressed(new OpenClaws());
 
-		JoystickButton triggerLeftClawCloseButton = new JoystickButton(stick, TRIGGER_CLAW_CLOSE_BUTTON_NUMBER);
-		triggerLeftClawCloseButton.whenPressed(new CloseClaws());
+		JoystickButton leftClawCloseButton = new JoystickButton(stick, RobotMap.CLAW_CLOSE_BUTTON);
+		leftClawCloseButton.whenPressed(new CloseClaws());
 	}
 
 	public Joystick getJoystick() {

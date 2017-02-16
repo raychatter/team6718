@@ -4,16 +4,15 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+import org.usfirst.frc.team6718.robot.RobotMap;
+
 /**
  *
  */
 public class Conveyor extends Subsystem {
-  public static final int CONVEYOR_MOTOR_PORT = 6;
-  public static final int TOP_LIMIT_SWITCH_PORT = 0;
-  public static final int BOTTOM_LIMIT_SWITCH_PORT = 1;
-  private Victor conveyorMotor = new Victor(CONVEYOR_MOTOR_PORT);
-  private DigitalInput conveyorAtTop = new DigitalInput(TOP_LIMIT_SWITCH_PORT);
-  private DigitalInput conveyorAtBottom = new DigitalInput(BOTTOM_LIMIT_SWITCH_PORT);
+  private Victor conveyorMotor = new Victor(RobotMap.CONVEYOR_MOTOR);
+  private DigitalInput conveyorAtTop = new DigitalInput(RobotMap.TOP_SWITCH);
+  private DigitalInput conveyorAtBottom = new DigitalInput(RobotMap.BOTTOM_SWITCH);
 
   public void moveToBottom() {
     conveyorMotor.set(0.5);
