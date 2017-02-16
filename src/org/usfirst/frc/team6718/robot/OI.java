@@ -22,6 +22,8 @@ public class OI {
 	public static final int TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER = 7;
 	public static final int TRIGGER_LEFT_CLAW_OPEN_BUTTON_NUMBER = 11;
 	public static final int TRIGGER_LEFT_CLAW_CLOSE_BUTTON_NUMBER = 12;
+	public static final int TRIGGER_RIGHT_CLAW_OPEN_BUTTON_NUMBER = 9;
+	public static final int TRIGGER_RIGHT_CLAW_CLOSE_BUTTON_NUMBER = 10;
 	// Button button = new JoystickButton(stick, 11);
 
 	// There are a few additional built in buttons you can use. Additionally,
@@ -37,10 +39,18 @@ public class OI {
 	public OI() {
 		JoystickButton triggerDriveSquareButton = new JoystickButton(stick, TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER);
 		triggerDriveSquareButton.whenPressed(new DriveInASquare());
+
 		JoystickButton triggerLeftClawOpenButton = new JoystickButton(stick, TRIGGER_LEFT_CLAW_OPEN_BUTTON_NUMBER);
 		triggerLeftClawOpenButton.whenPressed(new OpenLeftClaw());
+
 		JoystickButton triggerLeftClawCloseButton = new JoystickButton(stick, TRIGGER_LEFT_CLAW_CLOSE_BUTTON_NUMBER);
 		triggerLeftClawCloseButton.whenPressed(new CloseLeftClaw());
+
+		JoystickButton triggerRightClawOpenButton = new JoystickButton(stick, TRIGGER_RIGHT_CLAW_OPEN_BUTTON_NUMBER);
+		triggerRightClawOpenButton.whenPressed(new OpenRightClaw());
+
+		JoystickButton triggerRightClawCloseButton = new JoystickButton(stick, TRIGGER_RIGHT_CLAW_CLOSE_BUTTON_NUMBER);
+		triggerRightClawCloseButton.whenPressed(new CloseRightClaw());
 	}
 
 	public Joystick getJoystick() {

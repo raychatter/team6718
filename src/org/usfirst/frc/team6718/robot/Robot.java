@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
 import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 import org.usfirst.frc.team6718.robot.subsystems.LeftClaw;
+import org.usfirst.frc.team6718.robot.subsystems.RightClaw;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +26,7 @@ public class Robot extends IterativeRobot {
 
 	public static DriveSystem driveSystem;
 	public static LeftClaw leftClaw;
+	public static RightClaw rightClaw;
 	public static OI oi;
 
 	/**
@@ -35,6 +37,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		driveSystem = new DriveSystem();
 		leftClaw = new LeftClaw();
+		rightClaw = new RightClaw();
 		oi = new OI();
 		autonomousCommand = new DriveInASquare();
 	}
