@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
 import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
+import org.usfirst.frc.team6718.robot.subsystems.Conveyor;
 import org.usfirst.frc.team6718.robot.subsystems.LeftClaw;
 import org.usfirst.frc.team6718.robot.subsystems.RightClaw;
 
@@ -25,6 +26,7 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 
 	public static DriveSystem driveSystem;
+	public static Conveyor conveyor;
 	public static LeftClaw leftClaw;
 	public static RightClaw rightClaw;
 	public static OI oi;
@@ -36,6 +38,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		driveSystem = new DriveSystem();
+		conveyor = new Conveyor();
 		leftClaw = new LeftClaw();
 		rightClaw = new RightClaw();
 		oi = new OI();
