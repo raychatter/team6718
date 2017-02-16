@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
 import org.usfirst.frc.team6718.robot.commands.ConveyorDown;
 import org.usfirst.frc.team6718.robot.commands.ConveyorUp;
-import org.usfirst.frc.team6718.robot.commands.OpenLeftClaw;
-import org.usfirst.frc.team6718.robot.commands.CloseLeftClaw;
+import org.usfirst.frc.team6718.robot.commands.OpenClaws;
+import org.usfirst.frc.team6718.robot.commands.CloseClaws;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -50,10 +50,10 @@ public class OI {
 		triggerConveyorUpButton.whenPressed(new ConveyorUp());
 
 		JoystickButton triggerLeftClawOpenButton = new JoystickButton(stick, TRIGGER_CLAW_OPEN_BUTTON_NUMBER);
-		triggerLeftClawOpenButton.whenPressed(new OpenLeftClaw());
+		triggerLeftClawOpenButton.whenPressed(new OpenClaws());
 
 		JoystickButton triggerLeftClawCloseButton = new JoystickButton(stick, TRIGGER_CLAW_CLOSE_BUTTON_NUMBER);
-		triggerLeftClawCloseButton.whenPressed(new CloseLeftClaw());
+		triggerLeftClawCloseButton.whenPressed(new CloseClaws());
 	}
 
 	public Joystick getJoystick() {
