@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
 import org.usfirst.frc.team6718.robot.commands.OpenLeftClaw;
+import org.usfirst.frc.team6718.robot.commands.CloseLeftClaw;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -20,6 +21,7 @@ public class OI {
 	private Joystick stick  = new Joystick(JOYSTICK_PORT);
 	public static final int TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER = 7;
 	public static final int TRIGGER_LEFT_CLAW_OPEN_BUTTON_NUMBER = 11;
+	public static final int TRIGGER_LEFT_CLAW_CLOSE_BUTTON_NUMBER = 12;
 	// Button button = new JoystickButton(stick, 11);
 
 	// There are a few additional built in buttons you can use. Additionally,
@@ -37,6 +39,8 @@ public class OI {
 		triggerDriveSquareButton.whenPressed(new DriveInASquare());
 		JoystickButton triggerLeftClawOpenButton = new JoystickButton(stick, TRIGGER_LEFT_CLAW_OPEN_BUTTON_NUMBER);
 		triggerLeftClawOpenButton.whenPressed(new OpenLeftClaw());
+		JoystickButton triggerLeftClawCloseButton = new JoystickButton(stick, TRIGGER_LEFT_CLAW_CLOSE_BUTTON_NUMBER);
+		triggerLeftClawCloseButton.whenPressed(new CloseLeftClaw());
 	}
 
 	public Joystick getJoystick() {
