@@ -7,11 +7,11 @@ import org.usfirst.frc.team6718.robot.Robot;
 /**
  *
  */
-public class OpenLeftClaw extends Command  {
+public class CloseLeftClaw extends Command  {
 
-  public OpenLeftClaw() {
+  public CloseLeftClaw() {
     // Use requires() here to declare subsystem dependencies
-    super("OpenLeftClaw");
+    super("CloseLeftClaw");
     requires(Robot.leftClaw);
   }
 
@@ -23,13 +23,13 @@ public class OpenLeftClaw extends Command  {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.leftClaw.open();
+    Robot.leftClaw.close();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.leftClaw.isOpen();
+    return Robot.leftClaw.isClosed();
   }
 
   // Called once after isFinished returns true
@@ -42,7 +42,7 @@ public class OpenLeftClaw extends Command  {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    System.out.println("Left Claw opening interrupted");
+    System.out.println("Left Claw closing interrupted");
     end();
   }
 }
