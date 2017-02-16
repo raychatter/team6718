@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
+import org.usfirst.frc.team6718.robot.commands.CloseClawsAndMoveConveyor;
 import org.usfirst.frc.team6718.robot.commands.ConveyorDown;
 import org.usfirst.frc.team6718.robot.commands.ConveyorUp;
 import org.usfirst.frc.team6718.robot.commands.OpenClaws;
@@ -22,6 +23,7 @@ public class OI {
 	public static final int JOYSTICK_PORT = 0;
 	private Joystick stick  = new Joystick(JOYSTICK_PORT);
 	public static final int TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER = 7;
+	public static final int TRIGGER_CLAW_CLOSE_AND_CONVEYOR_BUTTON_NUMBER = 8;
 	public static final int TRIGGER_CONVEYOR_DOWN_BUTTON_NUMBER = 9;
 	public static final int TRIGGER_CONVEYOR_UP_BUTTON_NUMBER = 10;
 	public static final int TRIGGER_CLAW_OPEN_BUTTON_NUMBER = 11;
@@ -42,6 +44,9 @@ public class OI {
 	public OI() {
 		JoystickButton triggerDriveSquareButton = new JoystickButton(stick, TRIGGER_DRIVE_SQUARE_BUTTON_NUMBER);
 		triggerDriveSquareButton.whenPressed(new DriveInASquare());
+
+		JoystickButton triggerClawCloseAndConveyorButtonNumber = new JoystickButton(stick, TRIGGER_CLAW_CLOSE_AND_CONVEYOR_BUTTON_NUMBER);
+		triggerClawCloseAndConveyorButtonNumber.whenPressed(new CloseClawsAndMoveConveyor());
 
 		JoystickButton triggerConveyorDownButton = new JoystickButton(stick, TRIGGER_CONVEYOR_DOWN_BUTTON_NUMBER);
 		triggerConveyorDownButton.whenPressed(new ConveyorDown());
