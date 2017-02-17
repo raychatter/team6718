@@ -56,8 +56,8 @@ public class OI {
 		JoystickButton clawsCloseButton = new JoystickButton(stick, RobotMap.CLAWS_CLOSE_BUTTON);
 		clawsCloseButton.whenPressed(new CloseClaws());
 		
-		JoystickButton reverseButton = new JoystickButton(stick, RobotMap.REVERSE_BUTTON);
-		reverseButton.whenPressed(new SwitchDirection());
+//		JoystickButton reverseButton = new JoystickButton(stick, RobotMap.REVERSE_BUTTON);
+//		reverseButton.whenPressed(new SwitchDirection());
 	}
 
 	public Joystick getJoystick() {

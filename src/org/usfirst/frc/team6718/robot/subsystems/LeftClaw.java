@@ -40,14 +40,14 @@ public class LeftClaw extends Subsystem {
    * Set the claw motor to move in the open direction.
    */
   public void open() {
-    motor.set(0.5);
+    motor.set(-0.5);
   }
 
   /**
    * Set the claw motor to move in the close direction.
    */
   public void close() {
-    motor.set(-0.5);
+    motor.set(0.5);
   }
 
   /**
