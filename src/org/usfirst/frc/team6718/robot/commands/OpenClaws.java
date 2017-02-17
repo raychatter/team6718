@@ -9,7 +9,7 @@ import org.usfirst.frc.team6718.robot.subsystems.RightClaw;
 /**
  *
  */
-public class OpenClaws extends extends CommandGroup  {
+public class OpenClaws extends CommandGroup  {
 
   public OpenClaws() {
     // Use requires() here to declare subsystem dependencies

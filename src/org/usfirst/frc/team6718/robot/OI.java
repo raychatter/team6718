@@ -9,6 +9,7 @@ import org.usfirst.frc.team6718.robot.commands.CloseClawsAndMoveConveyor;
 import org.usfirst.frc.team6718.robot.commands.ConveyorDown;
 import org.usfirst.frc.team6718.robot.commands.ConveyorUp;
 import org.usfirst.frc.team6718.robot.commands.OpenClaws;
+import org.usfirst.frc.team6718.robot.commands.SwitchDirection;
 import org.usfirst.frc.team6718.robot.commands.CloseClaws;
 
 /**
@@ -40,8 +41,8 @@ public class OI {
 		JoystickButton driveSquareButton = new JoystickButton(stick, RobotMap.DRIVE_SQUARE_BUTTON);
 		driveSquareButton.whenPressed(new DriveInASquare());
 
-		JoystickButton clawCloseAndConveyorButton = new JoystickButton(stick, RobotMap.CLAW_CLOSE_AND_CONVEYOR_BUTTON);
-		clawCloseAndConveyorButton.whenPressed(new CloseClawsAndMoveConveyor());
+		JoystickButton clawsCloseAndConveyorButton = new JoystickButton(stick, RobotMap.CLAWS_CLOSE_AND_CONVEYOR_BUTTON);
+		clawsCloseAndConveyorButton.whenPressed(new CloseClawsAndMoveConveyor());
 
 		JoystickButton conveyorDownButton = new JoystickButton(stick, RobotMap.CONVEYOR_DOWN_BUTTON);
 		conveyorDownButton.whenPressed(new ConveyorDown());
@@ -49,11 +50,14 @@ public class OI {
 		JoystickButton conveyorUpButton = new JoystickButton(stick, RobotMap.CONVEYOR_UP_BUTTON);
 		conveyorUpButton.whenPressed(new ConveyorUp());
 
-		JoystickButton leftClawOpenButton = new JoystickButton(stick, RobotMap.CLAW_OPEN_BUTTON);
-		leftClawOpenButton.whenPressed(new OpenClaws());
+		JoystickButton clawsOpenButton = new JoystickButton(stick, RobotMap.CLAWS_OPEN_BUTTON);
+		clawsOpenButton.whenPressed(new OpenClaws());
 
-		JoystickButton leftClawCloseButton = new JoystickButton(stick, RobotMap.CLAW_CLOSE_BUTTON);
-		leftClawCloseButton.whenPressed(new CloseClaws());
+		JoystickButton clawsCloseButton = new JoystickButton(stick, RobotMap.CLAWS_CLOSE_BUTTON);
+		clawsCloseButton.whenPressed(new CloseClaws());
+		
+		JoystickButton reverseButton = new JoystickButton(stick, RobotMap.REVERSE_BUTTON);
+		reverseButton.whenPressed(new SwitchDirection());
 	}
 
 	public Joystick getJoystick() {

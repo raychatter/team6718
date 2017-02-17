@@ -36,6 +36,7 @@ public class RobotMap {
   public static final int CONVEYOR_UP_BUTTON = 10;
   public static final int CLAWS_OPEN_BUTTON = 11;
   public static final int CLAWS_CLOSE_BUTTON = 12;
+  public static final int REVERSE_BUTTON = 5;
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

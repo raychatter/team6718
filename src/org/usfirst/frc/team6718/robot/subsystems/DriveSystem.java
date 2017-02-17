@@ -1,5 +1,4 @@
 package org.usfirst.frc.team6718.robot.subsystems;
-
 import org.usfirst.frc.team6718.robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -18,6 +17,7 @@ public class DriveSystem extends Subsystem {
 	private Spark frontRightMotor = new Spark(RobotMap.FRONT_RIGHT_MOTOR);
 	private Spark rearRightMotor = new Spark(RobotMap.REAR_RIGHT_MOTOR);
 	private RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+	private boolean isBackwards = false;
 
 	public DriveSystem() {
 		super();
@@ -50,5 +50,23 @@ public class DriveSystem extends Subsystem {
 
 	public void stop() {
 		drive.arcadeDrive(0.0, 0.0);
+	}
+	
+	public void switchDirection() {
+		if (isBackwards == false) {
+			drive = new RobotDrive(frontRightMotor, rearRightMotor, frontLeftMotor, rearLeftMotor);
+			drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
+			drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
+			isBackwards = true;
+		} else {
+			drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+			drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+			drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+			isBackwards = false;
+		}
 	}
 }
