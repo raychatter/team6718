@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team6718.robot.commands.DriveInASquare;
+import org.usfirst.frc.team6718.robot.commands.DriveStraight;
 import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 import org.usfirst.frc.team6718.robot.subsystems.Conveyor;
 import org.usfirst.frc.team6718.robot.subsystems.LeftClaw;
@@ -42,7 +42,7 @@ public class Robot extends IterativeRobot {
 		leftClaw = new LeftClaw();
 		rightClaw = new RightClaw();
 		oi = new OI();
-		autonomousCommand = new DriveInASquare();
+		autonomousCommand = new DriveStraight(2);
 	}
 
 	/**
