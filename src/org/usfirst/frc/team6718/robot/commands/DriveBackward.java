@@ -8,12 +8,12 @@ import org.usfirst.frc.team6718.robot.subsystems.DriveSystem;
 /**
  *
  */
-public class DriveStraight extends Command {
+public class DriveBackward extends Command {
   private double m_timeout;
 
-  public DriveStraight(double timeout) {
+  public DriveBackward(double timeout) {
     // Use requires() here to declare subsystem dependencies
-    super("DriveStraight");
+    super("DriveBackward");
     m_timeout = timeout;
     requires(Robot.driveSystem);
   }

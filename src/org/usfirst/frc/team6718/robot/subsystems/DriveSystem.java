@@ -43,9 +43,17 @@ public class DriveSystem extends Subsystem {
 	public void straight() {
 		drive.arcadeDrive(1.0, 0.0);
 	}
+	
+	public void backward() {
+		drive.arcadeDrive(-1.0,0.0);
+	}
 
 	public void turnLeft() {
 		drive.arcadeDrive(0.0, 1.0);
+	}
+	
+	public void turnRight() {
+		drive.arcadeDrive(0.0,-1.0);
 	}
 
 	public void stop() {
