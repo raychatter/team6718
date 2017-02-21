@@ -38,11 +38,11 @@ public class OI {
 	// Start the command when the button is pressed and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	public OI() {
-		JoystickButton driveSquareButton = new JoystickButton(stick, RobotMap.DRIVE_SQUARE_BUTTON);
-		driveSquareButton.whenPressed(new DriveInASquare());
-
-		JoystickButton clawsCloseAndConveyorButton = new JoystickButton(stick, RobotMap.CLAWS_CLOSE_AND_CONVEYOR_BUTTON);
-		clawsCloseAndConveyorButton.whenPressed(new CloseClawsAndMoveConveyor());
+//		JoystickButton driveSquareButton = new JoystickButton(stick, RobotMap.DRIVE_SQUARE_BUTTON);
+//		driveSquareButton.whenPressed(new DriveInASquare());
+//
+//		JoystickButton clawsCloseAndConveyorButton = new JoystickButton(stick, RobotMap.CLAWS_CLOSE_AND_CONVEYOR_BUTTON);
+//		clawsCloseAndConveyorButton.whenPressed(new CloseClawsAndMoveConveyor());
 
 		JoystickButton conveyorDownButton = new JoystickButton(stick, RobotMap.CONVEYOR_DOWN_BUTTON);
 		conveyorDownButton.whenPressed(new ConveyorDown());

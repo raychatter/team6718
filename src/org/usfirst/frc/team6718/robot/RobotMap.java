@@ -22,16 +22,16 @@ public class RobotMap {
   public static final int LEFT_CLAW_MOTOR = 9;
 
   // DIO (Digital I/O)
-  public static final int TOP_SWITCH = 0;
-  public static final int BOTTOM_SWITCH = 1;
+  public static final int TOP_SWITCH = 9;
+  public static final int BOTTOM_SWITCH = 0;
   public static final int RIGHT_OPEN_SWITCH = 6;
   public static final int RIGHT_CLOSED_SWITCH = 7;
-  public static final int LEFT_OPEN_SWITCH = 8;
-  public static final int LEFT_CLOSED_SWITCH = 9;
+  public static final int LEFT_OPEN_SWITCH = 2;
+  public static final int LEFT_CLOSED_SWITCH = 3;
 
   // Joystick buttons
-  public static final int DRIVE_SQUARE_BUTTON = 7;
-  public static final int CLAWS_CLOSE_AND_CONVEYOR_BUTTON = 8;
+//  public static final int DRIVE_SQUARE_BUTTON = 7;
+//  public static final int CLAWS_CLOSE_AND_CONVEYOR_BUTTON = 8;
   public static final int CONVEYOR_DOWN_BUTTON = 9;
   public static final int CONVEYOR_UP_BUTTON = 10;
   public static final int CLAWS_OPEN_BUTTON = 11;
