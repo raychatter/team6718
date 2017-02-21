@@ -1,12 +1,9 @@
-
 package org.usfirst.frc.team6718.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6718.robot.commands.DriveStraight;
 import org.usfirst.frc.team6718.robot.commands.PlaceGearCrossLineLeft;
@@ -26,7 +23,6 @@ import org.usfirst.frc.team6718.robot.subsystems.RightClaw;
 public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
-	SendableChooser autoChooser;
 
 	public static DriveSystem driveSystem;
 	public static Conveyor conveyor;
@@ -45,11 +41,7 @@ public class Robot extends IterativeRobot {
 		leftClaw = new LeftClaw();
 		rightClaw = new RightClaw();
 		oi = new OI();
-		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Start middle, go left", new PlaceGearCrossLineLeft());
-		autoChooser.addObject("Start middle, go right", new PlaceGearCrossLineRight());
-		autoChooser.addObject("Cross line", new DriveStraight(2));
-		SmartDashboard.putData("Automomous mode chooser", autoChooser);
+		
 	}
 
 	/**
@@ -80,8 +72,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = (Command) autoChooser.getSelected();
-		autonomousCommand.start();
+		autonomousCommand = new PlaceGearCrossLineLeft();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
