@@ -45,17 +45,22 @@ public class OI {
 //		clawsCloseAndConveyorButton.whenPressed(new CloseClawsAndMoveConveyor());
 
 		JoystickButton conveyorDownButton = new JoystickButton(stick, RobotMap.CONVEYOR_DOWN_BUTTON);
-		conveyorDownButton.whenPressed(new ConveyorDown());
+		conveyorDownButton.whileHeld(new ConveyorDown());
 
 		JoystickButton conveyorUpButton = new JoystickButton(stick, RobotMap.CONVEYOR_UP_BUTTON);
-		conveyorUpButton.whenPressed(new ConveyorUp());
+		conveyorUpButton.whileHeld(new ConveyorUp());
 
-		JoystickButton clawsOpenButton = new JoystickButton(stick, RobotMap.CLAWS_OPEN_BUTTON);
-		clawsOpenButton.whenPressed(new OpenClaws());
-
-		JoystickButton clawsCloseButton = new JoystickButton(stick, RobotMap.CLAWS_CLOSE_BUTTON);
-		clawsCloseButton.whenPressed(new CloseClaws());
+//		JoystickButton clawsOpenButton = new JoystickButton(stick, RobotMap.CLAWS_OPEN_BUTTON);
+//		clawsOpenButton.whenPressed(new OpenClaws());
+//
+//		JoystickButton clawsCloseButton = new JoystickButton(stick, RobotMap.CLAWS_CLOSE_BUTTON);
+//		clawsCloseButton.whenPressed(new CloseClaws());
 		
+		JoystickButton manualClawsCloseButton = new JoystickButton(stick, RobotMap.MANUAL_CLAWS_CLOSE_BUTTON);
+		manualClawsCloseButton.whileHeld(new CloseClaws());
+		
+		JoystickButton manualClawsOpenButton = new JoystickButton(stick, RobotMap.MANUAL_CLAWS_OPEN_BUTTON);
+		manualClawsOpenButton.whileHeld(new OpenClaws());
 //		JoystickButton reverseButton = new JoystickButton(stick, RobotMap.REVERSE_BUTTON);
 //		reverseButton.whenPressed(new SwitchDirection());
 	}

@@ -17,7 +17,7 @@ public class RobotMap {
   public static final int REAR_LEFT_MOTOR = 1;
   public static final int FRONT_RIGHT_MOTOR = 2;
   public static final int REAR_RIGHT_MOTOR = 3;
-  public static final int CONVEYOR_MOTOR = 6;
+  public static final int CONVEYOR_MOTOR = 4;
   public static final int RIGHT_CLAW_MOTOR = 8;
   public static final int LEFT_CLAW_MOTOR = 9;
 
@@ -32,11 +32,13 @@ public class RobotMap {
   // Joystick buttons
 //  public static final int DRIVE_SQUARE_BUTTON = 7;
 //  public static final int CLAWS_CLOSE_AND_CONVEYOR_BUTTON = 8;
-  public static final int CONVEYOR_DOWN_BUTTON = 9;
-  public static final int CONVEYOR_UP_BUTTON = 10;
-  public static final int CLAWS_OPEN_BUTTON = 11;
-  public static final int CLAWS_CLOSE_BUTTON = 12;
+  public static final int CONVEYOR_DOWN_BUTTON = 7;
+  public static final int CONVEYOR_UP_BUTTON = 8;
+//  public static final int CLAWS_OPEN_BUTTON = 11;
+//  public static final int CLAWS_CLOSE_BUTTON = 12;
   public static final int REVERSE_BUTTON = 5;
+  public static final int MANUAL_CLAWS_OPEN_BUTTON = 11;
+  public static final int MANUAL_CLAWS_CLOSE_BUTTON = 12;
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

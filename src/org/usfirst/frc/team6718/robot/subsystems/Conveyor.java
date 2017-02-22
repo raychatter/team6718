@@ -15,11 +15,11 @@ public class Conveyor extends Subsystem {
   private DigitalInput conveyorAtBottom = new DigitalInput(RobotMap.BOTTOM_SWITCH);
 
   public void moveToBottom() {
-    conveyorMotor.set(0.5);
+    conveyorMotor.set(-0.25);
   }
 
   public void moveToTop() {
-    conveyorMotor.set(-0.5);
+    conveyorMotor.set(0.4);
   }
 
   public void stop() {
